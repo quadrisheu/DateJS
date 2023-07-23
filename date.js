@@ -14,7 +14,12 @@ function dateAndTime() {
     let min = date.getMinutes();
     min = min < 10 ? '0' + min : min;
     let sec = date.getSeconds();
-    let timeOfDay = hours + " " + meridian + " : " + min + " : " + sec;
+
+    function leadingZero(time) {
+        return time.toString().padStart(2, '0');
+    }
+
+    let timeOfDay = leadingZero(hours) + " " + meridian + " : " + leadingZero(min) + " : " + leadingZero(sec);
     
     let aye ='Today is : ' + days[dateOfDay];
     let awe = 'Current time is : ' + timeOfDay;
