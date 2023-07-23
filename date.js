@@ -4,20 +4,17 @@ let third = document.getElementById('third');
 
 function dateAndTime() {
     let date = new Date();
-    // let dateOfDay = date.toDateString();
     let dateOfDay = date.getDay();
     let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
      'Thursday', 'Friday', 'Saturday',]
-    // let time = date.toLocaleTimeString();
     let hours = date.getHours();
     let meridian = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours :  12;
     let min = date.getMinutes();
     min = min < 10 ? '0' + min : min;
-    let millsec = date.getMilliseconds();
-    let timeOfDay = hours + " " + meridian + " : " + min + 
-    " : " + millsec;
+    let sec = date.getSeconds();
+    let timeOfDay = hours + " " + meridian + " : " + min + " : " + sec;
     
     let aye ='Today is : ' + days[dateOfDay];
     let awe = 'Current time is : ' + timeOfDay;
@@ -25,6 +22,8 @@ function dateAndTime() {
     
     first.innerHTML = aye;
     second.innerHTML = awe;
+   
+    setInterval(dateAndTime, 1000);
     
 
 }
